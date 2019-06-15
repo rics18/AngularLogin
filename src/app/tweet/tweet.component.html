@@ -1,0 +1,31 @@
+<h1>{{idToken$}}</h1>
+
+<div>
+  <nav class="container-fluid navbar navbar-nav bg-light">
+    <div class="container-fluid border-bottom">
+      <div class="navbar-header">
+        <a href="#" class="fa fa-twitter" style="font-size:48px;color:skyblue"></a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in" (click)="logout()"></span> Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container bg-info">
+    <div *ngIf="tweetDetails">
+      <div *ngFor="let obj of tweetDetails" class="form-group">
+        <div class="card">
+          <div class="card-body">
+            <div><span style="font-weight:bold">ID :</span> {{obj.user.id}}</div>
+            <div><span style="font-weight:bold">Name :</span> {{obj.user.name}}</div>
+            <div><span style="font-weight:bold">Screen Name :</span> {{obj.user.screen_name}}</div>
+            <div><span style="font-weight:bold">Followers Count :</span> {{obj.user.followers_count}}</div>
+            <div><span style="font-weight:bold">Created at :</span> {{obj.user.created_at}}</div>
+            <div><button class="btn btn-success" (click)="getDetails(obj.user.id)">View full Details</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

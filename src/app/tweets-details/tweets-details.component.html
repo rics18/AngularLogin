@@ -1,0 +1,60 @@
+<nav class="container-fluid navbar navbar-nav bg-light">
+  <div class="container-fluid border-bottom">
+    <div class="navbar-header">
+      <a href="#" class="fa fa-twitter" style="font-size:48px;color:skyblue"></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-log-in" (click)="logout()"></span> Log out</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="form-group container bg-light">
+  <table class="table table-hover col-6">
+    <tbody>
+    <tr>
+      <td style="font-weight:bold">Profile Pic</td>
+      <td><img src="{{tweetDetails.user.profile_image_url}}"></td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold">ID</td>
+      <td>{{tweetDetails.user.id}}</td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold">Name</td>
+      <td>{{tweetDetails.user.name}}</td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold">Screen Name</td>
+      <td>{{tweetDetails.user.screen_name}}</td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold">Created at</td>
+      <td>{{tweetDetails.user.created_at}}</td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold">Description</td>
+      <td>{{tweetDetails.user.description}}</td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold">Favourites count</td>
+      <td>{{tweetDetails.user.favourites_count}}</td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold">Followers count</td>
+      <td>{{tweetDetails.user.followers_count}}</td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold">Friends count</td>
+      <td>{{tweetDetails.user.friends_count}}</td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold">Statuses count</td>
+      <td>{{tweetDetails.user.statuses_count}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+
+
+  <div class="form-group"><button class="btn btn-primary btn-block" type="submit" (click)="goBack()">Back</button></div>
+</div>
