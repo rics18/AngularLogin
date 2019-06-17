@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from '../login.service';
-import {TweetDetails} from '../tweetDetails';
+import {AppService} from '../app.service';
+import {TweetDetails} from '../models/tweetDetails';
 import {Router} from '@angular/router';
 
 @Component({
@@ -10,12 +10,12 @@ import {Router} from '@angular/router';
 })
 export class TweetsDetailsComponent implements OnInit {
   tweetDetails: TweetDetails;
-  constructor(private loginService: LoginService,
+  constructor(private appService: AppService,
               private router: Router) { }
 
   ngOnInit() {
-    const tweetId = this.loginService.tweetId;
-    const tweetDetails = this.loginService.tweetDetails;
+    const tweetId = this.appService.tweetId;
+    const tweetDetails = this.appService.tweetDetails;
 
     this.tweetDetails = tweetDetails.find(x => x.user.id === tweetId);
     console.log(tweetDetails.find(x => x.user.id === tweetId));
@@ -28,7 +28,7 @@ export class TweetsDetailsComponent implements OnInit {
   }
 
   public logout() {
-    this.loginService.logout();
+    this.appService.logout();
   }
 
 }

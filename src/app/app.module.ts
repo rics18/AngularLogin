@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
-import {LoginService} from './login.service';
+import {AppService} from './app.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
@@ -31,7 +29,7 @@ import {AuthGuardService} from './auth.gaurd.service';
     AppRouting,
   ],
   providers: [
-    LoginService,
+    AppService,
     AuthGuardService,
     {
       provide: HTTP_INTERCEPTORS,

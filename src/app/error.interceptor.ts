@@ -1,6 +1,6 @@
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {map, catchError} from 'rxjs/operators';
-import {LoginService} from './login.service';
+import {AppService} from './app.service';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Router} from '@angular/router';
@@ -8,7 +8,7 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private loginService: LoginService,
+  constructor(private loginService: AppService,
               private router: Router) {
   }
 
@@ -22,7 +22,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       }),
         catchError((error: HttpErrorResponse) => {
           console.log('Error in interceptor', error);
-          if (error.status === 400) {
+          if (error.status === 401) {
             this.loginService.logout();
             location.reload(true);
             localStorage.removeItem('idToken');
